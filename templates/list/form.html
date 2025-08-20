@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content%}
+    {% if "name" in form.fields %}
+        <h1>{{object|yesno:"Update,Create"}} tag:</h1>
+    {% else %}
+        <h1>{{object|yesno:"Update,Create"}} task:</h1>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

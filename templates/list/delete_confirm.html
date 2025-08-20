@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if tag %}
+        <h1>Delete tag</h1>
+        <br>
+        <p>Are you sure you want to delete tag: {{tag.name}}?</p>
+    {% else %}
+        <h1>Delete task</h1>
+        <br>
+        <p>Are you sure you want to delete task: {{task.content}}?</p>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Yes, delete">
+    </form>
+{% endblock %}
