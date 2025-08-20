@@ -10,7 +10,7 @@
             <div class="list-block">
                 <div>
                     <b>{{task.content}} </b>
-                    {% if task.is_done %}<p style="color: green">Done</p>{% else %}<p style="color: red">Not done</p>{% endif %}
+                    {% if task.is_done %}<p style="color: green">Done</p>{% else %}<p style="color: red>Not done</p>{% endif %}
                 </div>
                 <form action="{% url "list:update-status" task.pk task.is_done|yesno:"undo,complete" %}" method="post">
                     {% csrf_token %}
