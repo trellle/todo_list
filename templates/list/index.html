@@ -8,16 +8,19 @@
     {% for task in tasks %}
         <div class="taskblock">
             <div class="list-block">
-            <b>{{task.content}} </b>
-            <form action="{% url "list:update-status" task.pk task.is_done|yesno:"undo,complete" %}" method="post">
-                {% csrf_token %}
-                {% if task.is_done %}
-                    <button type="submit" class="btn edit">Undo</button>
-                {% else %}
-                    <button type="submit" class="btn ready">Complete</button>
-                {% endif %}
-            </form>
-        </div>
+                <div>
+                    <b>{{task.content}} </b>
+                    {% if task.is_done %}<p style="color: green">Done</p>{% else %}<p style="color: red">Not done</p>{% endif %}
+                </div>
+                <form action="{% url "list:update-status" task.pk task.is_done|yesno:"undo,complete" %}" method="post">
+                    {% csrf_token %}
+                    {% if task.is_done %}
+                        <button type="submit" class="btn edit">Undo</button>
+                    {% else %}
+                        <button type="submit" class="btn ready">Complete</button>
+                    {% endif %}
+                </form>
+            </div>
         Created: {{task.created_at}} Deadline: {% if task.deadline %}{{task.deadline}}{% else %}None{% endif %}
         <br>
         Tags: 
