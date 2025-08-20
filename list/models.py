@@ -3,6 +3,9 @@ from django.db import models
 # Create your models here.
 class Tag(models.Model):
     name = models.CharField(max_length=256)
+    
+    def __str__(self) -> str:
+        return self.name
 
 
 class Task(models.Model):
@@ -14,3 +17,6 @@ class Task(models.Model):
 
     class Meta:
         ordering = ["is_done", "-created_at"]
+    
+    def __str__(self) -> str:
+        return self.content

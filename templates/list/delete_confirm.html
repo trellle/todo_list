@@ -3,11 +3,11 @@
     {% if tag %}
         <h1>Delete tag</h1>
         <br>
-        <p>Are you sure you want to delete tag: {{tag.name}}?</p>
+        <p>Are you sure you want to delete tag: {{tag}}?</p>
     {% else %}
         <h1>Delete task</h1>
         <br>
-        <p>Are you sure you want to delete task: {{task.content}}?</p>
+        <p>Are you sure you want to delete task: {{task}}?</p>
     {% endif %}
     <form action="" method="post">
         {% csrf_token %}
