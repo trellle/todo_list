@@ -21,14 +21,14 @@
                     {% endif %}
                 </form>
             </div>
-        Created: {{task.created_at}} Deadline: {% if task.deadline %}{{task.deadline}}{% else %}None{% endif %}
-        <br>
-        Tags: 
-        {% if task.tags %}
-            {% for tag in task.tags.all %}{{tag.name}} {% endfor %}
-        {% endif %}
-        <a href="{% url 'list:task-update' pk=task.id %}">Update </a>
-        <a href="{% url 'list:task-delete' pk=task.id %}">Delete</a>
-        <div>
+            Created: {{task.created_at}} Deadline: {% if task.deadline %}{{task.deadline}}{% else %}None{% endif %}
+            <br>
+            {% if task.tags.exists %}
+                Tags: 
+                {% for tag in task.tags.all %}{{tag.name}} {% endfor %}
+            {% endif %}
+            <a href="{% url 'list:task-update' pk=task.id %}">Update </a>
+            <a href="{% url 'list:task-delete' pk=task.id %}">Delete</a>
+        </div>
     {% endfor %}
 {% endblock %}

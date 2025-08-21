@@ -4,7 +4,7 @@ body {
 
 .taskblock {
   border-bottom: 2px solid gray;
-  margin-bottom: 20px;
+  padding: 10px 0;
 }
 
 .list-block {
